@@ -15,6 +15,7 @@ flask = "*"
 
 pytest = "*"
 pytest-flask = "*"
+pytest-selenium = "*"
 
 
 [requires]
