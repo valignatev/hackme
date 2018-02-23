@@ -6,12 +6,15 @@ name = "pypi"
 
 
 [packages]
-flask = '*'
+
+flask = "*"
+"e1839a8" = {path = ".", editable = true}
 
 
 [dev-packages]
-pytest = '*'
-pytest-flask = '*'
+
+pytest = "*"
+pytest-flask = "*"
 
 
 [requires]
