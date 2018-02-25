@@ -5,4 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def catalog():
-    return render_template('catalog.jinja2', content='Sup XSS')
+    catalog = [
+        {'content': 1},
+        {'content': 2},
+        {'content': 3},
+    ]
+    return render_template('catalog.jinja2', catalog=catalog)

@@ -3,6 +3,6 @@ import pytest
 
 
 @pytest.mark.usefixtures('live_server')
-def test_google(selenium):
+def test_catalog(selenium):
     selenium.get(url_for('catalog', _external=True))
-    assert 'Shoppy catalog' == selenium.title
+    assert 3 == len(selenium.find_elements_by_class_name('product'))

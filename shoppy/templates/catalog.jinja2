@@ -1,10 +1,6 @@
-<html>
-  <head>
-    <title>Shoppy catalog</title>
-  </head>
-  <body>
-    <div>
-      {{ content }}
-    </div>
-  </body>
-</html>
+{% extends "base.jinja2" %}
+{% block content %}
+  {% for product in catalog %}
+    <div class="product">{{ product.content }}</div>
+  {% endfor %}
+{% endblock %}
