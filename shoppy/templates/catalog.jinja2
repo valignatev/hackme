@@ -1,6 +1,10 @@
 {% extends "base.jinja2" %}
 {% block content %}
-  {% for product in catalog %}
-    <div class="product">{{ product.content }}</div>
+  {% for product in products %}
+    <div class="product">{{ product.name }}</div>
+  {% else %}
+    <div id="noresults">
+      Sorry, no products found for <b>{{ search }}</b>
+    </div>
   {% endfor %}
 {% endblock %}
