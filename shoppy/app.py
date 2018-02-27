@@ -1,5 +1,3 @@
-from operator import itemgetter
-
 from flask import Flask, render_template, request
 from werkzeug.exceptions import abort
 
