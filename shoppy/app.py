@@ -10,6 +10,13 @@ PRODUCTS = [
     {'name': 'nimbus 2000', 'id': 3},
 ]
 
+REVIEWS = [
+    {'author': 'Vasya', 'text': 'This is shit', 'product_id': 1},
+    {'author': 'Lesha', 'text': 'This is shit', 'product_id': 1},
+    {'author': 'Peter', 'text': 'This is shit', 'product_id': 3},
+    {'author': 'Lesha', 'text': 'This is shit', 'product_id': 3},
+]
+
 
 @app.route('/')
 def catalog():
@@ -26,4 +33,5 @@ def product(product_id):
         product = [p for p in PRODUCTS if p['id'] == product_id][0]
     except IndexError:
         abort(404)
-    return render_template('product.jinja2', product=product)
+    reviews = [c for c in REVIEWS if c['product_id'] == product_id]
+    return render_template('product.jinja2', product=product, reviews=reviews)
