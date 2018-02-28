@@ -6,8 +6,15 @@ app.secret_key = 'lol_secret'
 
 
 USERS = [
-    {'id': 1, 'username': 'admin', 'password': '123', 'role': 'admin'},
+    {'id': 1, 'username': 'root', 'password': '123', 'role': 'admin'},
     {'id': 2, 'username': 'alice', 'password': 'poib', 'role': 'user'},
+]
+
+
+CARDS = [
+    {'cvc': '123', 'number': '4276 7000 5555 5555'},
+    {'cvc': '124', 'number': '4444 4444 4444 4444'},
+    {'cvc': '543', 'number': '4242 4242 4242 4242'},
 ]
 
 
@@ -89,3 +96,19 @@ def login():
 def logout():
     session.pop('user')
     return redirect(url_for('catalog'))
+
+
+@app.route('/admin/')
+def admin():
+    try:
+        user = session['user']
+    except KeyError:
+        abort(404)
+    if user['role'] == 'admin':
+        return render_template(
+            'admin.jinja2',
+            users=USERS,
+            cards=CARDS,
+            user=user,
+        )
+    abort(404)

@@ -1,0 +1,21 @@
+{% extends "base.jinja2" %}
+{% block content %}
+  <b>Shoppy Admin</b>
+  <p>Manage users:</p>
+  <table>
+    <tr><th>username</th><th>role</th></tr>
+    {% for user in users %}
+      <tr><td>{{ user.username }}</td><td>{{ user.role }}</td></tr>
+    {% endfor %}
+  </table>
+  <p>Manage credit cards:</p>
+  <table>
+    <tr><th>number</th><th>CVC</th></tr>
+    {% for card in cards %}
+      <tr><td>{{ card.number }}</td><td>{{ card.cvc }}</td></tr>
+    {% endfor %}
+  </table>
+  <div>----------------------------</div>
+{% endblock %}
+
+
