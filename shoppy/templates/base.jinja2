@@ -7,19 +7,25 @@
         border: 1px solid black;
         padding: 5px;
       }
+
+      .inline {
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
   <div id="content">
     {% if user %}
-      <div style="display:inline-block">Welcome, {{ user.username }}</div>
-      <a style="display:inline-block" href="/logout/">Logout</a>
+      <p>
+        <div class="inline">Welcome, {{ user.username }}</div>
+        <a class="inline" href="/logout/">Logout</a>
+      </p>
     {% else %}
       Please <a href="/login/">login</a>
     {% endif %}
     <div>
-      <a href="/" style="display:inline-block">Home</a>
-      <form method="GET" style="display:inline-block">
+      <a href="/" class="inline">Home</a>
+      <form method="GET" class="inline">
         <input name="q" placeholder="Search:" type="search">
         <input value="Go!" type="submit">
       </form>
