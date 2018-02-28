@@ -1,7 +1,14 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 from werkzeug.exceptions import abort
 
 app = Flask(__name__)
+app.secret_key = 'lol_secret'
+
+
+USERS = [
+    {'id': 1, 'username': 'admin', 'password': '123', 'role': 'admin'},
+    {'id': 2, 'username': 'alice', 'password': 'poib', 'role': 'user'},
+]
 
 
 PRODUCTS = [
@@ -24,7 +31,12 @@ def catalog():
     products = PRODUCTS
     if search:
         products = [p for p in PRODUCTS if search in p['name']]
-    return render_template('catalog.jinja2', products=products, search=search)
+    return render_template(
+        'catalog.jinja2',
+        products=products,
+        search=search,
+        user=session.get('user', {}),
+    )
 
 
 @app.route('/product/<int:product_id>', methods=['GET', 'POST'])
@@ -44,4 +56,36 @@ def product(product_id):
             },
         )
     reviews = [r for r in REVIEWS if r['product_id'] == product_id]
-    return render_template('product.jinja2', product=product, reviews=reviews)
+    return render_template(
+        'product.jinja2',
+        product=product,
+        reviews=reviews,
+        user=session.get('user', {}),
+    )
+
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.jinja2', user=session.get('user', {}))
+    login = request.form['login']
+    password = request.form['password']
+    try:
+        user = [
+            u for u in USERS
+            if u['username'] == login and u['password'] == password
+        ][0]
+    except IndexError:
+        return render_template(
+            'login.jinja2',
+            error='Login or password is incorrect',
+            user=session.get('user', {}),
+        )
+    session['user'] = user
+    return redirect(url_for('catalog'))
+
+
+@app.route('/logout/')
+def logout():
+    session.pop('user')
+    return redirect(url_for('catalog'))

@@ -5,11 +5,19 @@
   </head>
   <body>
   <div id="content">
-    <div id="search">
-      <form method="GET">
+    {% if user %}
+      <div style="display:inline-block">Welcome, {{ user.username }}</div>
+      <a style="display:inline-block" href="/logout/">Logout</a>
+    {% else %}
+      Please <a href="/login/">login</a>
+    {% endif %}
+    <div>
+      <a href="/" style="display:inline-block">Home</a>
+      <form method="GET" style="display:inline-block">
         <input name="q" placeholder="Search:" type="search">
         <input value="Go!" type="submit">
       </form>
+      <p></p>
     </div>
     {% block content %}{% endblock %}
   </div>
