@@ -3,6 +3,7 @@ from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 app.secret_key = 'lol_secret'
+app.config['SESSION_COOKIE_HTTPONLY'] = False
 
 
 USERS = [
