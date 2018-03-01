@@ -12,4 +12,6 @@ $ FLASK_APP=steal.py FLASK_DEBUG=1 flask run --host=127.0.0.1 --port=5010 # to r
 $ pytest --driver Firefox  # to run tests, should have Firefox and geckodriver somewhere in PATH
 ```
 
+All presentation related stuff is in talks dir, if it helps
+
 (c) hujak, hujak i v production 3018
