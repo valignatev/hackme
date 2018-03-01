@@ -1,0 +1,40 @@
+ПРЕВЕД
+
+\@valignatev
+
+XSS
+
+Cross-Site Scripting (XSS) attacks are a type of injection,
+in which malicious scripts are injected into otherwise benign
+and trusted web sites. XSS attacks occur when an attacker uses
+a web application to send malicious code, generally in the
+form of a browser side script, to a different end user
+Flaws that allow these attacks to succeed are quite
+widespread and occur anywhere a web application uses input
+from a user within the output it generates without
+validating or encoding it. An attacker can use XSS to send
+a malicious script to an unsuspecting user. The end user's
+browser has no way to know that the script should not be trusted,
+and will execute the script. Because it thinks the script came
+from a trusted source, the malicious script can access any
+cookies, session tokens, or other sensitive information
+retained by the browser and used with that site.
+These scripts can even rewrite the content of the HTML page.
+©owasp.org
+
+IT'S DEMO TIME!
+
+@jester_tweet.png
+
+@jester_mid.png
+
+Read:
+▸ owasp.org/index.php/Cross-site_Scripting_(XSS)
+▸ html5sec.org
+
+Watch:
+▸ youtu.be/playlist?list=PL1A2CSdiySGIRec2pvDMkYNi3iRO89Zot
+▸ youtu.be/playlist?list=PLhixgUqwRTjwJTIkNopKuGLk3Pm9Ri1sF
+
+\@valignatev
+??ВОПРОСЫ??
