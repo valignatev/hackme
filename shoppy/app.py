@@ -20,7 +20,7 @@ CARDS = [
 
 
 PRODUCTS = [
-    {'name': 'dildo', 'id': 1, 'price': 123.11},
+    {'name': '1080ti', 'id': 1, 'price': 123.11},
     {'name': 'antirkn', 'id': 2, 'price': 666.66},
     {'name': 'nimbus 2000', 'id': 3, 'price': 399},
 ]
