@@ -34,7 +34,7 @@ REVIEWS = [
 
 
 def escape(text):
-    return text.replace('<script>', '')
+    return text.replace('<script>', '').replace('javascript:', '')
 
 
 @app.route('/')
