@@ -33,6 +33,10 @@ REVIEWS = [
 ]
 
 
+def escape(text):
+    return text.replace('<script>', '')
+
+
 @app.route('/')
 def catalog():
     search = request.args.get('q', '')
@@ -42,7 +46,7 @@ def catalog():
     return render_template(
         'catalog.jinja2',
         products=products,
-        search=search,
+        search=escape(search),
         user=session.get('user', {}),
     )
 
@@ -58,7 +62,7 @@ def product(product_id):
         REVIEWS.append(
             {
                 'author': request.form['author'],
-                'text': request.form['review'],
+                'text': escape(request.form['review']),
                 'id': last_review_id + 1,
                 'product_id': product_id,
             },
