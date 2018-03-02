@@ -26,10 +26,10 @@ PRODUCTS = [
 ]
 
 REVIEWS = [
-    {'id': 1, 'author': 'Vasya', 'text': 'This is shit', 'product_id': 1},
-    {'id': 2, 'author': 'Lesha', 'text': 'This is shit', 'product_id': 1},
-    {'id': 3, 'author': 'Peter', 'text': 'This is shit', 'product_id': 3},
-    {'id': 4, 'author': 'Lesha', 'text': 'This is shit', 'product_id': 3},
+    {'id': 1, 'author': 'Vasya', 'text': 'This is awesome', 'product_id': 1},
+    {'id': 2, 'author': 'Lesha', 'text': 'Want moar!', 'product_id': 1},
+    {'id': 3, 'author': 'Peter', 'text': 'UR MOM', 'product_id': 3},
+    {'id': 4, 'author': 'Lesha', 'text': 'kill me please', 'product_id': 3},
 ]
 
 
