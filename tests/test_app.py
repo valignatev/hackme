@@ -28,3 +28,16 @@ def test_no_xss(selenium):
     )
     with pytest.raises(TimeoutException):
         WebDriverWait(selenium, 1).until(EC.alert_is_present())
+
+
+def test_no_link_xss(selenium):
+    selenium.get(url_for('product', product_id=1, _external=True))
+    selenium.find_element_by_tag_name('textarea').send_keys(
+        '<a href="javascript:alert()">click</a>',
+        Keys.ENTER,
+    )
+    selenium.find_element_by_name('submit').click()
+    selenium.find_element_by_link_text('click').click()
+    with pytest.raises(TimeoutException):
+        WebDriverWait(selenium, 1).until(EC.alert_is_present())
+    assert 'Not Found' in selenium.page_source
