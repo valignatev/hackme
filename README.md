@@ -1,5 +1,9 @@
 # Shoppy - the very bugged ecommerse from poib 2018 talk.
 
+![Thumbnail](https://github.com/valignatev/hackme/blob/master/thumbnail.jpg)
+
+Recorded talk is [here (click)](https://www.youtube.com/watch?v=iC8blfEAcMM)
+
 ## Run it yourself
 
 ```bash
